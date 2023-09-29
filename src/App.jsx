@@ -1,7 +1,22 @@
-import { useState } from 'react'
 import SectionDescription from './components/SectionDescription'
 import SectionVideo from './components/SectionVideo'
+import Socket from './components/socket'
+import {useEffect,useState} from "react"
+import {io} from "socket.io-client";
+
 function App() {
+
+  const [socketInstance, setSocketInstance] = useState("");
+  const [loading,setLoading] = useState(true)
+  useEffect(() => {
+      const socket = io("ws://localhost:5001");
+      setSocketInstance(socket);
+      setLoading(false)
+      console.log(socket)
+      return function cleanup() {
+        socket.disconnect();
+      };
+  }, []);
 
   return (
     <>
@@ -12,8 +27,13 @@ function App() {
       gap-10
       md:grid-cols-2'>
         <SectionVideo/>
-        <SectionDescription/>
+        {
+          !loading && (
+            <SectionDescription socket={socketInstance}/>
+          )
+        }
       </div>
+      {/* <Socket/> */}
       </div>
     </>
   )

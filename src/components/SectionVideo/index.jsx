@@ -14,7 +14,7 @@ const SectionVideo = () => {
         },
         body:JSON.stringify({data:imageSrc})
       }
-      const url ="http://localhost:5000/detection"
+      const url ="http://localhost:5001/detection"
       fetch(url,options).then(response=>{
         if(response.ok){
             return response.json();
