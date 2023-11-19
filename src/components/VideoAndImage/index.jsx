@@ -6,7 +6,7 @@ import ModalPremiation from "../ModalPremiation";
 import Button from "../Button";
 const VideoAndImage = ({name,pointTotal}) => {
 
-    const socket = io(import.meta.env.VITE_API_URL);
+    const socket = io(import.meta.env.VITE_API_URL_SOCKET);
     
     const [bbox,setBbox] = useState("")
     const [bboxSigna,setBboxSigna] = useState("")
