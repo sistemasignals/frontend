@@ -42,7 +42,9 @@ const VideoAndImage = ({name,pointTotal}) => {
     useEffect(()=>{
         if(bbox != ""){
             const imgElementCurrent = imgElement2.current
-            imgElementCurrent.src = bbox
+            if(imgElementCurrent){
+                imgElementCurrent.src = bbox
+            }
         }
     },[bbox])
 
@@ -128,7 +130,7 @@ const VideoAndImage = ({name,pointTotal}) => {
                         {
                             bboxSigna != "" && (
                                 <img
-                            ref={imgElement2}
+                            src={imgElement2}
                             style={{
                             position: 'absolute',
                             zIndex: 1,
