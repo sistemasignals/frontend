@@ -128,17 +128,17 @@ const VideoAndImage = ({name,pointTotal}) => {
                     <div className="flex flex-row border-gray-100 border-2">
                         {/* Imagen del bbox */}
                         {
-                            bboxSigna != "" && (
+                            bbox != "" && (
                                 <img
-                            src={imgElement2}
+                            src={bbox}
                             style={{
                             position: 'absolute',
                             zIndex: 1,
                             }}
                             alt="Bbox Image"
                         />
-                            )
-                        }
+                                )
+                            }
                         {/* Video here */}
                         <div colSpan={1}>
                             <video playsInline muted ref={myVideo} autoPlay
